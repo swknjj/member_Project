@@ -89,6 +89,20 @@ public class HomeController {
 //        session.removeAttribute("loginEmail");
         return "redirect:/";
     }
+
+    @GetMapping("delete")
+    public String delete(@RequestParam("id") Long id) {
+        int result = memberService.delete(id);
+        if(result==1) {
+            return "deleteComplete";
+        }else {
+            return "errorPage";
+        }
+    }
+    @GetMapping("/login")
+    public String login() {
+        return "memberLogin";
+    }
 //    @GetMapping("/duplicate-check")
 //    public String duplicatecheck(@RequestParam("memberEmail") String memberEmail,Model model) {
 //        MemberDTO memberDTO = memberService.duplicatecheck(memberEmail);

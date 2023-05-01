@@ -12,30 +12,33 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <style>
-
+    input {
+        height: 40px;
+    }
 </style>
 <body>
 <%@include file="component/header.jsp"%>
 <%@include file="component/nav.jsp"%>
-<div id="section">
+
+<div id="section" style="text-align: center; margin: auto; font-size: xx-large";>
 <form action="/save" method="post" onsubmit="return Check()">
     <label for="member-Email">memberEmail</label><br>
-    <input type="text" id="member-Email" name="memberEmail" onblur="fun2()" placeholder="필수입력"><br>
+    <input type="text" id="member-Email" name="memberEmail" onblur="fun2()" placeholder="필수입력" size="40"><br>
 
     <label for="member-Password">memberPassword</label><br>
-    <input type="text" id="member-Password" name="memberPassword" placeholder="필수입력"><br>
+    <input type="text" id="member-Password" name="memberPassword" placeholder="필수입력" size="40"><br>
 
     <label for="member-Name">memberName</label><br>
-    <input type="text" id="member-Name" name="memberName" placeholder="필수입력"><br>
+    <input type="text" id="member-Name" name="memberName" placeholder="필수입력" size="40"><br>
 
     <label for="member-Birth">memberBirth</label><br>
-    <input type="text" id="member-Birth" name="memberBirth" placeholder="필수입력 YYYY-MM-DD"><br>
+    <input type="text" id="member-Birth" name="memberBirth" placeholder="필수입력 YYYY-MM-DD" size="40"><br>
 
     <label for="member-Mobile">memberMobile</label><br>
-    <input type="text" id="member-Mobile" name="memberMobile" placeholder="필수입력 -는생략"><br>
+    <input type="text" id="member-Mobile" name="memberMobile" placeholder="필수입력 -는생략" size="40"><br>
 
-    <input type="submit" value="회원가입">
-    <input type="button" onclick="fun1()" value="취소">
+    <input type="submit" value="회원가입" size="40">
+    <input type="button" onclick="fun1()" value="취소" size="40">
 </form>
 </div>
 <%@include file="component/footer.jsp"%>

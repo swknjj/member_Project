@@ -24,6 +24,7 @@
     <th>birth</th>
     <th>mobile</th>
     <th>수정</th>
+    <th>삭제</th>
 </tr>
     <tr>
         <td>${memberDTO.id}</td>
@@ -33,6 +34,7 @@
         <td>${memberDTO.memberBirth}</td>
         <td>${memberDTO.memberMobile}</td>
         <td><button onclick="fun1(${memberDTO.id})">수정</button></td>
+        <td><button onclick="fun2(${memberDTO.id})">삭제</button></td>
     </tr>
 </table>
 </div>
@@ -43,6 +45,9 @@
 <script>
     const fun1 = (id) => {
         location.href = "/update?id="+id;
+    }
+    const fun2 = (id) => {
+        location.href = "/delete?id="+id;
     }
 </script>
 </html>

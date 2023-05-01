@@ -9,7 +9,7 @@
 <%@include file="component/header.jsp"%>
 <%@include file="component/nav.jsp"%>
 <div id="section">
-    <table>
+    <table style="width: 100%; text-align: center;">
         <tr>
             <th>Id</th>
             <th>Email</th>
@@ -28,6 +28,7 @@
                 <td>${member.memberBirth}</td>
                 <td>${member.memberMobile}</td>
                 <td><button onclick="fun2(${member.id})">상세조회</button></td>
+
             </tr>
         </c:forEach>
     </table>
@@ -42,5 +43,6 @@
     const fun2 = (id) => {
         location.href = "/member?id="+id;
     }
+
 </script>
 </html>

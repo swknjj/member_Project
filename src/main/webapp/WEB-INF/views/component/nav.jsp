@@ -21,7 +21,7 @@
         <a href="/logout">logout</a>
         </c:when>
         <c:otherwise>
-          <a href="/login">logout</a>
+          <a href="/login">login</a>
         </c:otherwise>
       </c:choose>
     </li>

@@ -40,6 +40,11 @@ public class MemberService {
         memberRepository.update(memberDTO);
     }
 
+    public int delete(Long id) {
+        int result = memberRepository.delete(id);
+        return result;
+    }
+
 //    public MemberDTO duplicatecheck(String memberEmail) {
 //        MemberDTO memberDTO = memberRepository.duplicatecheck(memberEmail);
 //        return memberDTO;

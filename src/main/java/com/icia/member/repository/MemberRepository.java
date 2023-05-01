@@ -38,6 +38,10 @@ public class MemberRepository {
         sql.update("Member.update",memberDTO);
     }
 
+    public int delete(Long id) {
+        return sql.delete("Member.delete",id);
+    }
+
 //    public MemberDTO duplicatecheck(String memberEmail) {
 //        return sql.selectOne("Member.check",memberEmail);
 //    }
