@@ -30,6 +30,14 @@
         delete from member_table where id=#{id}
     </delete>
 
+    <select id="update2" parameterType="Object" resultType="member">
+        select * from member_table where memberEmail=#{email}
+    </select>
+
+    <update id="update3" parameterType="member">
+        update member_table set memberName=#{memberName}, memberMobile=#{memberMobile} where id=#{id};
+    </update>
+
 <!--    <select id="check" parameterType="String" resultType="member">-->
 <!--        select memberEmail from member_table where memberEmail=#{memberEmail}-->
 <!--    </select>-->

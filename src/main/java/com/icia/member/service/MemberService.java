@@ -45,6 +45,15 @@ public class MemberService {
         return result;
     }
 
+    public MemberDTO update2(Object email) {
+        MemberDTO memberDTO = memberRepository.update2(email);
+        return memberDTO;
+    }
+
+    public void update3(MemberDTO memberDTO) {
+        memberRepository.update3(memberDTO);
+    }
+
 //    public MemberDTO duplicatecheck(String memberEmail) {
 //        MemberDTO memberDTO = memberRepository.duplicatecheck(memberEmail);
 //        return memberDTO;

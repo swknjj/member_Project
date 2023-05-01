@@ -27,7 +27,7 @@
                 <td>${member.memberName}</td>
                 <td>${member.memberBirth}</td>
                 <td>${member.memberMobile}</td>
-                <td><button onclick="fun2(${member.id})">상세조회</button></td>
+                <td><button onclick="fun2('${member.id}')">상세조회</button></td>
 
             </tr>
         </c:forEach>

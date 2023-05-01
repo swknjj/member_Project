@@ -42,6 +42,14 @@ public class MemberRepository {
         return sql.delete("Member.delete",id);
     }
 
+    public MemberDTO update2(Object email) {
+        return sql.selectOne("Member.update2",email);
+    }
+
+    public void update3(MemberDTO memberDTO) {
+        sql.update("Member.update3",memberDTO);
+    }
+
 //    public MemberDTO duplicatecheck(String memberEmail) {
 //        return sql.selectOne("Member.check",memberEmail);
 //    }

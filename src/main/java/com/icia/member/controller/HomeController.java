@@ -111,7 +111,19 @@ public class HomeController {
 //        }else {
 //
 //        }
+    @GetMapping("/update2")
+    public String update2Form(Model model,HttpSession session) {
+        String email = (String)session.getAttribute("loginEmail");
+        MemberDTO m = memberService.update2(email);
+        model.addAttribute("memberDTO",m);
+        return "memberUpdate2";
+    }
 
+    @PostMapping("/update2")
+    public String update2(@ModelAttribute MemberDTO memberDTO) {
+        memberService.update3(memberDTO);
+        return "redirect:/";
+    }
     }
 
 
