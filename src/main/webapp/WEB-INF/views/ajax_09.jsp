@@ -7,10 +7,10 @@
 </head>
 <body>
 <%-- ajax(Asynchronous Javascript and XML) --%>
-<button onclick="ajax05()">함수호출</button>
+<button onclick="ajax09()">함수호출</button>
 </body>
 <script>
-  const ajax05 = () => {
+  const ajax09 = () => {
     const memberEmail = "aa@aa.com";
     const memberPassword = "1234";
     const memberName = "member1";
