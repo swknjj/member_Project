@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <style>
     input {
@@ -23,7 +24,8 @@
 <div id="section" style="text-align: center; margin: auto; font-size: xx-large";>
 <form action="/save" method="post" onsubmit="return Check()">
     <label for="member-Email">memberEmail</label><br>
-    <input type="text" id="member-Email" name="memberEmail" onblur="fun2()" placeholder="필수입력" size="40"><br>
+    <input type="text" id="member-Email" name="memberEmail" onblur="ajax_01()" placeholder="필수입력" size="40"><br>
+    <h4 id="member-Email-bottom"></h4>
 
     <label for="member-Password">memberPassword</label><br>
     <input type="text" id="member-Password" name="memberPassword" placeholder="필수입력" size="40"><br>
@@ -37,7 +39,7 @@
     <label for="member-Mobile">memberMobile</label><br>
     <input type="text" id="member-Mobile" name="memberMobile" placeholder="필수입력 -는생략" size="40"><br>
 
-    <input type="submit" value="회원가입" size="40">
+    <input type="submit" id="submit" value="회원가입" disabled="disabled" size="40">
     <input type="button" onclick="fun1()" value="취소" size="40">
 </form>
 </div>
@@ -46,7 +48,36 @@
 <script>
     const fun1 = () => {
         alert("홈으로 돌아갑니다");
-        location.href("/");
+        location.href="/";
+    }
+    const ajax_01 = () => {
+        let typingEmail = document.getElementById("member-Email").value;
+        const submit_button = document.getElementById("submit");
+        const member_Email_bottom = document.getElementById("member-Email-bottom");
+        $.ajax({
+            type: "post",
+            url: "email-check",
+            data: {
+                "email_check": typingEmail
+            },
+            success: function () {
+                if(typingEmail.length==0){
+                    member_Email_bottom.innerText = "필수입력";
+                    member_Email_bottom.style.color="red";
+                    submit_button.disabled=true;
+                }else {
+                    member_Email_bottom.innerText = "사용가능한 이메일입니다";
+                    member_Email_bottom.style.color = "green";
+                    submit_button.disabled = false;
+                }
+            },
+            error: function () {
+                member_Email_bottom.innerText = "이미 사용중인 이메일입니다";
+                member_Email_bottom.style.color="red";
+                submit_button.disabled=true;
+            }
+        })
+
     }
     // const fun2 = () => {
     //     const memberEmail = document.getElementById("member-email");

@@ -79,7 +79,33 @@ public class AjaxController {
         resultMap.put("memberList",memberDTOList);
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
+    @PostMapping("email-check")
+    public ResponseEntity email_check(@RequestParam("email_check") String email) {
+        MemberDTO memberDTO = memberService.findByEmail(email);
+        if(memberDTO == null) {
+            return new ResponseEntity<>(memberDTO,HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(memberDTO, HttpStatus.CONFLICT);
+        }
+
+    }
+    @PostMapping("member_table")
+    public ResponseEntity member_table(@RequestParam("id") Long id) {
+        MemberDTO m = memberService.member(id);
+        System.out.println("m = " + m);
+        if(m!=null){
+            return new ResponseEntity<>(m,HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(m,HttpStatus.NOT_FOUND);
+        }
+
+    }
 
 
 
 }
+//    @GetMapping("/ajax_05")
+//    public @ResponseBody MemberDTO ajax_05(@ModelAttribute MemberDTO memberDTO) {
+//        System.out.println("memberDTO = " + memberDTO);
+//        return memberDTO;
+//    }

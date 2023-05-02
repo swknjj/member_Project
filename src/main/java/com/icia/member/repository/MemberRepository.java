@@ -50,6 +50,10 @@ public class MemberRepository {
         sql.update("Member.update3",memberDTO);
     }
 
+    public MemberDTO findByEmail(String email) {
+        return sql.selectOne("Member.findByEmail",email);
+    }
+
 //    public MemberDTO duplicatecheck(String memberEmail) {
 //        return sql.selectOne("Member.check",memberEmail);
 //    }

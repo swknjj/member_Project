@@ -54,6 +54,11 @@ public class MemberService {
         memberRepository.update3(memberDTO);
     }
 
+    public MemberDTO findByEmail(String email) {
+        MemberDTO memberDTO = memberRepository.findByEmail(email);
+        return memberDTO;
+    }
+
 //    public MemberDTO duplicatecheck(String memberEmail) {
 //        MemberDTO memberDTO = memberRepository.duplicatecheck(memberEmail);
 //        return memberDTO;
